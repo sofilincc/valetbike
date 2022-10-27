@@ -2,8 +2,9 @@
 
 Hi, it's Zoe Buck :)
 Sophi Cerda
-Yuhan
+Yuhan :>
 Dakota
+
 
 Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
