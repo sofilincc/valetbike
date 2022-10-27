@@ -1,6 +1,6 @@
 Zoe Buck :)
 Sophi
- Yuhan
+ Yuhan Wang :>
  Dakota
 
 Smith College CSC223: Software Engineering\
