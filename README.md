@@ -1,7 +1,7 @@
 # ValetBike
 
 Hi, it's Zoe Buck :)
-Sophi Cerda
+Sophi Cerda :)
 Yuhan :>
 Dakota
 
