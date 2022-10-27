@@ -1,6 +1,6 @@
 # ValetBike
 
-Zoe Buck :)
+Hi, it's Zoe Buck :)
 Sophi
 
 
