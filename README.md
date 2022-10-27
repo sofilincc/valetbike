@@ -1,5 +1,5 @@
 Zoe Buck
-Sophi
+Sophi Cerda
  Yuhan
 
 Smith College CSC223: Software Engineering\
@@ -67,7 +67,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * If using `rails s` or `bin/dev` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
-  
+
 
 ## Assignment #1: Hello Stack, Welcome to ValetBike!
 
@@ -139,4 +139,3 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see https://www.gnu.org/licenses.
-
