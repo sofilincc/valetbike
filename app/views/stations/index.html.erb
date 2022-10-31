@@ -1,8 +1,9 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
+      <%= image_tag('bike_logo.png', height: '60', width: '90') %>
       Welcome to ValetBike!
-    </div>  
+    </div>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
