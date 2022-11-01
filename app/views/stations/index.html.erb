@@ -1,8 +1,10 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
-    </div>  
+      <%= image_tag('bike_logo.png', height: '60', width: '90') %>
+      <center> Welcome to ValetBike! </center>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23602.95551448874!2d-72.64143125!3d42.31331839999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1667324742671!5m2!1sen!2sus" width="1400" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
