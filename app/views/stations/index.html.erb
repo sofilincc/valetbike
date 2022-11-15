@@ -16,18 +16,32 @@
       <body>
         <h3>GFG Google Maps Demo</h3>
         <div id="map"></div>
-        <script>
+        <script> 
           function initMap() {
             var uluru = {lat: 42.3163, lng: -72.6403};
             var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
-              center: uluru
+              zoom: 14,
+              center: new google.maps.LatLng(42.3163, -72.6403)
             });
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-            });
+            
+            var geocoder = new google.maps.Geocoder();
+            var station_addresses = ["380 Elm Street, Northampton, MA", "51 Locust Street, Northampton, MA", "20 West Street, Northampton, MA", "1 Bridge Street, Northampton, MA"];
+            for (let index = 0; index < station_addresses.length; index++){
+              geocoder.geocode( { 'address': station_addresses[index]}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  var latitude = results[0].geometry.location.lat();
+                  var longitude = results[0].geometry.location.lng();
+                  var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude, longitude),
+                    map: map
+                  });
+                }
+              });
+            }
           }
+              
+
+
         </script>
         <script async defer
         src=
