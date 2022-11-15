@@ -83,3 +83,7 @@ gem 'dotenv-rails'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+gem 'bcrypt'
+
+gem "cssbundling-rails", "~> 1.1"
