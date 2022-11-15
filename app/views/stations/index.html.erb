@@ -14,8 +14,7 @@
         <% else %>
         <%= link_to 'Sign Up', sign_up_path %>
       <% end %>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23602.95551448874!2d-72.64143125!3d42.31331839999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1667324742671!5m2!1sen!2sus" width="1400" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+    
     </div>
     <div class="flexbox vertical stretch">
       <head>
@@ -29,14 +28,14 @@
       <body>
         <h3>GFG Google Maps Demo</h3>
         <div id="map"></div>
-        <script> 
+        <script>
           function initMap() {
             var uluru = {lat: 42.3163, lng: -72.6403};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 14,
               center: new google.maps.LatLng(42.3163, -72.6403)
             });
-            
+
             var geocoder = new google.maps.Geocoder();
             var station_addresses = ["380 Elm Street, Northampton, MA", "51 Locust Street, Northampton, MA", "20 West Street, Northampton, MA", "1 Bridge Street, Northampton, MA"];
             for (let index = 0; index < station_addresses.length; index++){
@@ -52,7 +51,7 @@
               });
             }
           }
-              
+
 
 
         </script>
