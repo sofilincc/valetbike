@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   #Sessions routes
   delete 'logout', to: 'sessions#destroy'
-
+  
+  match 'rent', to: "stations#rent", via: :get
+  match 'membership', to: "stations#membership", via: :get
 
 end
+

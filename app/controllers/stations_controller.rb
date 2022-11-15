@@ -6,4 +6,11 @@ class StationsController < ApplicationController
       @user = User.find(session[:user_id])
     end
   end
+
+  def rent
+  end
+
+  def membership
+  end
+
 end
