@@ -3,14 +3,20 @@
   <div class="header">
     <a href="#home" class="logo">Valetbike
       <%= image_tag('bike_logo.png', height: '60' , width: '90' ) %>
+      <% if @user %>
+      Hello <%=@user.username %>
+      <% end %>
     </a>
     <div class="header-right">
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Membership", membership_path %></li>
         <li><%= link_to "Rent", rent_path %></li>
-        <li><%= link_to "Singup", sign_up_path %></li>
-        <li><%= link_to "Login", login_path %></li>
+        <% if @user %>
+          <li><%= link_to "Logout", logout_path, method: :delete%></li>
+          <% else %>
+            <li><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
