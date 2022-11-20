@@ -4,11 +4,10 @@
 </div>
     <div class="section-title">
 
-      Welcome to ValetBike!
+
       <% if @user %>
-        Logged in as:  <%= @user.username %>
+        Logged in as:  <%=@user.username %>
         <%= button_to "Logout", logout_path, method: :delete%>
-        <%= link_to('Membership', {controller: 'users', action: 'membership'}) %><br />
         <% else %>
         <%= link_to 'Sign Up', sign_up_path %>
       <% end %>
@@ -68,6 +67,3 @@
       <% end %>
     </div>
 	</div>
-  <div>
-    <%= link_to('Rent', {controller: 'stations', action: 'rent'}) %><br />
-</div>
