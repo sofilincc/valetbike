@@ -23,7 +23,7 @@
     font-weight: bold;
   }
   
-\  .header a:hover {
+  .header a:hover {
     background-color: rgb(210, 153, 201);
     color: rgb(255, 255, 255);
   }
@@ -34,7 +34,7 @@
   }
   
   .header-right {
-    float: right;
+    float: center;
   }
   
   @media screen and (max-width: 500px) {
