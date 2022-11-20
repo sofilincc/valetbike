@@ -1,13 +1,11 @@
-<%= stylesheet_link_tag "header.css" %>
+<%= stylesheet_link_tag "navbar.css" %>
 <header>
-  <div class="header">
-    <a href="#home" class="logo">Valetbike
-      <%= image_tag('bike_logo.png', height: '60' , width: '90' ) %>
-      <% if @user %>
+  <div class="container">
+    <%= image_tag "bike_logo.png", class: "bike_logo" %>
+    <% if @user %>
       Hello <%=@user.username %>
       <% end %>
-    </a>
-    <div class="header-right">
+    <nav class="header">
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Membership", membership_path %></li>
@@ -18,6 +16,6 @@
             <li><%= link_to "Login", login_path %></li>
         <% end %>
       </ul>
-    </div>
+    </nav>
   </div>
 </header>

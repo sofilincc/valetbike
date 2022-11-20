@@ -21,6 +21,7 @@
   .header a.logo {
     font-size: 25px;
     font-weight: bold;
+    float: left;
   }
   
   .header a:hover {
@@ -36,14 +37,4 @@
   .header-right {
     float: center;
   }
-  
-  @media screen and (max-width: 500px) {
-    .header a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-    .header-right {
-      float: none;
-    }
-  }
+
