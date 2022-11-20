@@ -4,14 +4,6 @@
 </div>
     <div class="section-title">
 
-
-      <% if @user %>
-        Logged in as:  <%=@user.username %>
-        <%= button_to "Logout", logout_path, method: :delete%>
-        <% else %>
-        <%= link_to 'Sign Up', sign_up_path %>
-      <% end %>
-    
     </div>
     <div class="flexbox vertical stretch">
       <head>
