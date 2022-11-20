@@ -10,7 +10,4 @@ class StationsController < ApplicationController
   def rent
   end
 
-  def membership
-  end
-
 end
