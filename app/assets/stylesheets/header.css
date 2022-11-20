@@ -1,6 +1,6 @@
 .header {
     overflow: hidden;
-    background-color: #cbc1f1;
+    background-color: #fad4eb;
     padding: 20px 10px;
     background-repeat: repeat;
     background-position: center top;
@@ -24,7 +24,7 @@
   }
   
   .header a:hover {
-    background-color: rgb(210, 153, 201);
+    background-color: rgb(220, 150, 209);
     color: rgb(255, 255, 255);
   }
   
@@ -35,6 +35,7 @@
   
   .header-right {
     float: center;
+    font-family: "FreeMono", monospace;
   }
   
   @media screen and (max-width: 500px) {

@@ -1,15 +1,13 @@
 <%= stylesheet_link_tag "header.css" %>
 <header>
   <div class="header">
-    <a href="#home" class="logo">Valetbike
-      <%= image_tag('bike_logo.png', height: '60' , width: '90' ) %>
-    </a>
+    <a href="#home" class="logo">Valetbike</a>
     <div class="header-right">
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Membership", membership_path %></li>
         <li><%= link_to "Rent", rent_path %></li>
-        <li><%= link_to "Singup", sign_up_path %></li>
+        <li><%= link_to "Sign up", sign_up_path %></li>
         <li><%= link_to "Login", login_path %></li>
       </ul>
     </div>
