@@ -11,6 +11,7 @@
       <% if @user %>
         Logged in as:  <%= @user.username %>
         <%= button_to "Logout", logout_path, method: :delete%>
+        <%= link_to('Membership', {controller: 'users', action: 'membership'}) %><br />
         <% else %>
         <%= link_to 'Sign Up', sign_up_path %>
       <% end %>

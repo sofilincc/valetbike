@@ -1,13 +1,35 @@
-<%= stylesheet_link_tag "rent.css" %>
+<%= stylesheet_link_tag "membership.css", "flexbox-ultralight.css" %>
 
-<h1>Ready to rent a bike?</h1>
+<div class="membership-title">
+    Ready to rent a bike?
+</div>
 
-<div class='left'>
-    <%= image_tag('bikeshare.jpeg', height: '300', width: '500') %>
-    <h2>Electrical Bike</h2>
-</div>
-<div class='right'>
-    <%= image_tag('normalbike.png', height: '300', width: '500') %>
-    <h2>Manual Bike</h2>
-</div>
+<div class="center justify-space-around">
+    <div class="membership flexbox vertical" id="rent" style="display: inline-block">
+        <div class="membership-box">
+            <%= image_tag('bikeshare.png', height: '300', width: '500', :alt => "Electrical Bike") %>
+        </div>
+        <h1 class="membership-title">Electrical bike</h1>
+        <h2 class="membership-subtitle">We want to feel the wind between our hair</h2>
+        <div class="membership-pay" id="rent-pay" >
+            <p class="membership-cost">$3</p>
+            <p class="membership-text">per 30min</p>
+            <button class="membership-button" role="link"type="button">Unlock</button>
+        </div>
+    </div>
+
+    <div class="membership flexbox vertical" id="rent" style="display: inline-block">
+        <div class="membership-box">
+            <%= image_tag('normalbike.png', height: '300', width: '500', :alt => "Manual Bike") %>
+        </div>
+        <h1 class="membership-title">Manual Bike</h1>
+        <h2 class="membership-subtitle">Classic, Healthy, Affordable</h2>
+        <div class="membership-pay" id="rent-pay" >
+            <p class="membership-cost">$1</p>
+            <p class="membership-text">per 30min</p>
+            <button class="membership-button" role="link"type="button">Unlock</button>
+        </div>
+    </div>
+</div>  
+
 
