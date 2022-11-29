@@ -21,6 +21,7 @@
   .header a.logo {
     font-size: 25px;
     font-weight: bold;
+    float: left;
   }
   
   .header a:hover {
@@ -37,14 +38,4 @@
     float: center;
     font-family: "FreeMono", monospace;
   }
-  
-  @media screen and (max-width: 500px) {
-    .header a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-    .header-right {
-      float: none;
-    }
-  }
+
