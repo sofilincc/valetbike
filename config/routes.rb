@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   match 'rent', to: "stations#rent", via: :get
   match 'membership', to: "users#membership", via: :get
 
+  resources :charges, only: [:new, :create]
+
 
 end

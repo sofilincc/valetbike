@@ -9,7 +9,6 @@
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Membership", membership_path %></li>
-        <li><%= link_to "Rent", rent_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Logout", logout_path, method: :delete%></li>
           <% else %>

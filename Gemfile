@@ -87,3 +87,7 @@ gem 'dotenv-rails'
 gem 'bcrypt'
 
 gem "cssbundling-rails", "~> 1.1"
+
+gem 'stripe'
+
+gem 'dotenv-rails', :groups => [:development, :test]
