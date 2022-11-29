@@ -30,6 +30,11 @@
     text-shadow: 1.5px 1.5px rgb(0 0 0 / 14%);
 }
 
+#signup{
+    padding: 10px;
+    background: #f98ec37e;
+}
+
 .membership-title,
 .membership-subtitle {
     margin: 0;
