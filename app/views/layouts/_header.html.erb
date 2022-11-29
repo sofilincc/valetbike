@@ -2,15 +2,15 @@
 <header>
   <div class="container">
     <%= image_tag "bike_logo.png", class: "bike_logo" %>
-    <% if @user %>
-      Hello <%=@user.username %>
-      <% end %>
+    <% if logged_in? %>
+      Hello <%= current_user.username %>
+    <% end %>
     <nav class="header">
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Membership", membership_path %></li>
         <li><%= link_to "Rent", rent_path %></li>
-        <% if @user %>
+        <% if logged_in? %>
           <li><%= link_to "Logout", logout_path, method: :delete%></li>
           <% else %>
             <li><%= link_to "Login", login_path %></li>
