@@ -1,0 +1,74 @@
+.container{
+    width:1000px;
+    margin:auto;
+    margin-top:20px;
+}
+
+.form-container{
+    width:500px;
+}
+
+.bike_logo{
+    width: 100px;
+    float: left;
+}
+
+.header a{
+    padding: 12px;
+    border-radius: 4px;
+    line-height: 25px;
+
+}
+
+.header a:hover {
+    background-color: rgb(210, 153, 201);
+    color: rgb(255, 255, 255);
+}
+
+.header a:active {
+    background-color: rgb(210, 153, 201);
+    color: rgb(255, 255, 255);
+}
+
+header{
+    background: #fcc0ff;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+nav {
+    float: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+display: inline-block;
+margin-left: 70px;
+padding-top: 35px;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: center;
+    }
+  }

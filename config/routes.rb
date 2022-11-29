@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   #Sessions routes
-  delete 'logout', to: 'sessions#destroy'
-  
+  get 'logout', to: 'sessions#destroy'
+  post 'logout', to: 'stations#index'
+
   match 'rent', to: "stations#rent", via: :get
-  match 'membership', to: "stations#membership", via: :get
+  match 'membership', to: "users#membership", via: :get
 
   resources :charges, only: [:new, :create]
-  # get '/card/new' => 'charges#new', as: :add_payment
+
 
 end
-

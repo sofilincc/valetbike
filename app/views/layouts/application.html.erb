@@ -22,6 +22,15 @@
       ValetBike
     </title>
   </head>
+  <body class="<%= controller_name %> <%= action_name%>">
+	<%= render 'layouts/header' %>
+	<div class="container-fluid">
+
+		<div class="row">
+			<%= yield :sidebar %>
+		</div>
+	</div>
+</body>
   <div id="content" style="min_height: 400px;">
       <%= render(partial: 'shared/flash') %>
   </div>
