@@ -1,9 +1,5 @@
-html,body{
-    min-width:100%;
-}
-
-.membership {
-    width: 300px;
+.membership-card {
+    width: 300px auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: 20px;
     overflow: hidden;
@@ -15,7 +11,7 @@ html,body{
 
 /* style for rent card\*/
 #rent{
-    width: 550px;
+    width: 550px auto;
     background-color: #f98ec341;
 }
 
@@ -32,6 +28,11 @@ html,body{
     background: #f98ec3;
     color: #ffffff;
     text-shadow: 1.5px 1.5px rgb(0 0 0 / 14%);
+}
+
+#signup{
+    padding: 10px;
+    background: #f98ec37e;
 }
 
 .membership-title,
@@ -110,7 +111,7 @@ html,body{
     color: black;
 }
 
-.membership-text {
+.membership-pay-text {
     font-size: 0.9em;
     text-align: center;
     margin: 0 0 10px 0;

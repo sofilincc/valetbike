@@ -139,6 +139,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     public_suffix (5.0.0)
@@ -203,8 +205,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
+    stripe (8.0.0)
     strscan (3.0.4)
     tailwindcss-rails (2.0.12-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.12-x86_64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.12-x86_64-linux)
       railties (>= 6.0.0)
@@ -257,6 +262,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  stripe
   tailwindcss-rails
   turbo-rails
   tzinfo-data
