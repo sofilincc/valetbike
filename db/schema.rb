@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_27_230750) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_214513) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -26,12 +26,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_230750) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subscriptions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "plan_id"
+    t.string "customer_id"
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.datetime "current_period_end"
+    t.datetime "current_period_start"
+    t.string "interval"
+    t.string "subscription_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "membership_id"
+    t.string "stripe_id"
   end
 
+  add_foreign_key "subscriptions", "users"
 end

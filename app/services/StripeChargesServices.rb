@@ -34,6 +34,7 @@ class StripeChargesServices
       email: stripe_email,
       source: stripe_token
     )
+    # set stripe token
     user.update(stripe_token: customer.id)
     customer
   end

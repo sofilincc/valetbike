@@ -13,6 +13,7 @@ module Valetbike
 
     # Configuration for the application, engines, and railties goes here.
     #
+    #Stripe.api_key = Rails.configuration.stripe[:secret_key]
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
