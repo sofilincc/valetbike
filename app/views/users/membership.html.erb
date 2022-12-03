@@ -42,8 +42,17 @@
                 </div>
                 <div class="membership-pay">
                     <p class="membership-cost">$19.9</p>
-                    <p class="membership-pay-text">membership fee</p>
-                    <button class="membership-button" role="link"type="button">checkout</button>
+                    <p class="membership-pay-text">yearly membership fee</p>
+                    <button class="membership-button">
+                        <% if logged_in? %>
+                            <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
+                                <input type="hidden" name="price_id" value="price_1MAJihJP4ezsauZiMRTrn9RO" />
+                                <%= submit_tag "Subscribe for $9/mo", data: { disable_with: "Hold please..." }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                            <% end %>
+                            <% else %>
+                                <%= link_to "Log in to become a member!", login_path, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                        <% end %>
+                    </button>
                 </div>
             </div>
         </div>
@@ -64,7 +73,16 @@
                 <div class="membership-pay">
                     <p class="membership-cost">$39.9</p>
                     <p class="membership-pay-text">per ride</p>
-                    <button class="membership-button" role="link"type="button">checkout</button>
+                    <button class="membership-button">
+                        <% if logged_in? %>
+                            <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
+                                <input type="hidden" name="price_id" value="price_1M9c5JJP4ezsauZiS4yWqGrK" />
+                                <%= submit_tag "Subscribe for $9/mo", data: { disable_with: "Hold please..." }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                            <% end %>
+                            <% else %>
+                                <%= link_to "Log in to subscribe!", login_path, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                        <% end %>
+                    </button>
                 </div>
             </div>
         </div>

@@ -75,7 +75,7 @@ group :test do
 end
 
 # Developer Added Gems
-gem 'dotenv-rails'
+#gem 'dotenv-rails'
 
 # Suggested Potentially Useful Gems
 # gem 'devise'
@@ -91,3 +91,10 @@ gem "cssbundling-rails", "~> 1.1"
 gem 'stripe'
 
 gem 'dotenv-rails', :groups => [:development, :test]
+
+gem "devise", "~> 4.8", ">= 4.8.1"
+gem "friendly_id", "~> 5.4", ">= 5.4.2"
+
+gem "name_of_person"
+gem "sidekiq", "~> 6.5", ">= 6.5.4"
+gem "stripe"
