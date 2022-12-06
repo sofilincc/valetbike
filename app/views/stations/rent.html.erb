@@ -13,7 +13,13 @@
             <div class="membership-pay" id="rent-pay" >
                 <p class="membership-cost">$3</p>
                 <p class="membership-pay-text">per 30min</p>
-                <button class="membership-button" role="link"type="button">Unlock</button>
+                <button class="membership-button">
+                    <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
+                        <input type="hidden" name="price_id" value="price_1MAMabJP4ezsauZiUDWHtpWX" />
+                        <input type="hidden" name="mode_id" value="payment" />
+                        <%= submit_tag "Unlock", data: { disable_with: "Hold please..." }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                    <% end %>
+                </button>
             </div>
         </div>
 
