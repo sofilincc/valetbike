@@ -15,22 +15,22 @@ Rails.application.routes.draw do
 
   match 'rent', to: "stations#rent", via: :get
   match 'membership', to: "users#membership", via: :get
-  #match 'success', to: "checkouts#success", via: :get
 
-  resources :charges, only: [:new, :create]
+
+  #resources :charges, only: [:new, :create]
 
 
 
   namespace :purchase do
     resources :checkouts
   end
-
-  get 'success', to: 'checkouts#success'
-  resources :subscriptions
+  
+  get "success", to: "purchase/checkouts#success"
+  #resources :subscriptions
   
 
   
-
+  post '/purchase/checkouts', to: 'checkouts#create'
 
   #api from webchrunch
   #require 'sidekiq'
@@ -43,11 +43,11 @@ Rails.application.routes.draw do
   # devise_for :users
 
   # Add 3 these lines below
-  scope controller: :static do
-    get 'pricing'
+  scope controller: :users do
+    get 'membership'
   end
   
-  match 'pricing', to: "static#pricing", via: :get
+  #match 'pricing', to: "static#pricing", via: :get
   #root to: 'home#index'
   
 end
