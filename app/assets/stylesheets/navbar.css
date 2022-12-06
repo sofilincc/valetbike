@@ -60,6 +60,12 @@ nav a {
     font-size: 14px;
 }
 
+  .header user_name{
+    float: left
+    font-family:monospace;
+  }
+
+
 @media screen and (max-width: 500px) {
     .header a {
       float: none;

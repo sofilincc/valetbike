@@ -6,7 +6,7 @@
     background-position: center top;
     background-attachment: scroll;
   }
-  
+
   .header a {
     float: left;
     color: black;
@@ -17,24 +17,23 @@
     line-height: 25px;
     border-radius: 4px;
   }
-  
+
   .header a.logo {
     font-size: 25px;
     font-weight: bold;
     float: left;
   }
-  
+
   .header a:hover {
     background-color: rgb(210, 153, 201);
     color: rgb(255, 255, 255);
   }
-  
+
   .header a.active {
     background-color: rgb(218, 30, 255);
     color: white;
   }
-  
+
   .header-right {
     float: center;
   }
-

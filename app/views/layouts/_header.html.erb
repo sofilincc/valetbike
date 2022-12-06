@@ -2,9 +2,11 @@
 <header>
   <div class="container">
     <%= image_tag "bike_logo.png", class: "bike_logo" %>
+    <div class = "header user_name">
     <% if @user %>
       Hello <%=@user.username %>
       <% end %>
+      </div>
     <nav class="header">
       <ul>
         <li><%= link_to "Home", root_path %></li>
