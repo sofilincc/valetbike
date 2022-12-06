@@ -1,35 +1,33 @@
 <%= stylesheet_link_tag "membership.css", "flexbox-ultralight.css" %>
 
-<div class="membership-title">
+<div class="membership-title" style="margin-top:20px">
     Ready to rent a bike?
 </div>
 
-<div class="center justify-space-around">
-    <div class="membership flexbox vertical" id="rent" style="display: inline-block">
-        <div class="membership-box">
-            <%= image_tag('bikeshare.png', height: '300', width: '500', :alt => "Electrical Bike") %>
+<body>
+    <div class="flexbox justify-space-around">
+        <div class="membership-card flexbox vertical" id="rent" style="display: inline-block">
+            <%= image_tag('bikeshare.png', height: '300', width: '500', :alt => "Electrical Bike") %>           
+            <h1 class="membership-title">Electrical bike</h1>
+            <h2 class="membership-subtitle">Enjoy the wind in our hair</h2>
+            <div class="membership-pay" id="rent-pay" >
+                <p class="membership-cost">$3</p>
+                <p class="membership-pay-text">per 30min</p>
+                <button class="membership-button" role="link"type="button">Unlock</button>
+            </div>
         </div>
-        <h1 class="membership-title">Electrical bike</h1>
-        <h2 class="membership-subtitle">We want to feel the wind between our hair</h2>
-        <div class="membership-pay" id="rent-pay" >
-            <p class="membership-cost">$3</p>
-            <p class="membership-text">per 30min</p>
-            <button class="membership-button" role="link"type="button">Unlock</button>
-        </div>
-    </div>
 
-    <div class="membership flexbox vertical" id="rent" style="display: inline-block">
-        <div class="membership-box">
-            <%= image_tag('normalbike.png', height: '300', width: '500', :alt => "Manual Bike") %>
+        <div class="membership-card flexbox vertical" id="rent" style="display: inline-block">
+            <%= image_tag('normalbike.png', height: '300', width: '500', :alt => "Manual Bike") %>            
+            <h1 class="membership-title">Manual Bike</h1>
+            <h2 class="membership-subtitle">Classic, Healthy, Affordable</h2>
+            <div class="membership-pay" id="rent-pay" >
+                <p class="membership-cost">$1</p>
+                <p class="membership-pay-text">per 30min</p>
+                <button class="membership-button" role="link"type="button">Unlock</button>
+            </div>
         </div>
-        <h1 class="membership-title">Manual Bike</h1>
-        <h2 class="membership-subtitle">Classic, Healthy, Affordable</h2>
-        <div class="membership-pay" id="rent-pay" >
-            <p class="membership-cost">$1</p>
-            <p class="membership-text">per 30min</p>
-            <button class="membership-button" role="link"type="button">Unlock</button>
-        </div>
-    </div>
-</div>  
+    </div>  
+</body>
 
 

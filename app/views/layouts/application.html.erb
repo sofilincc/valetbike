@@ -8,6 +8,13 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <script src="https://js.stripe.com/v2/"></script> 
+    <script>
+      Stripe.setPublishableKey('pk_test_51M7OsQJP4ezsauZivsBGU7nLgAKbrKpKrrCvEaFg55PAoLMzbb8BC6PY1meEft09uRzy76dNBs4S1s0n9orRIQqq006aybne7l');
+    </script>
+    <input type=”hidden” name=”stripeToken” />
+
     <%= javascript_importmap_tags %>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
@@ -16,7 +23,7 @@
     </title>
   </head>
   <body class="<%= controller_name %> <%= action_name%>">
-	<%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
 	<div class="container-fluid">
 
 		<div class="row">

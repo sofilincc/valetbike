@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+    #ENV['STRIPE_PUBLISHABLE_KEY'] = 'pk_test_51M7OsQJP4ezsauZivsBGU7nLgAKbrKpKrrCvEaFg55PAoLMzbb8BC6PY1meEft09uRzy76dNBs4S1s0n9orRIQqq006aybne7l'
+    #ENV['STRIPE_SECRET_KEY'] = 'sk_test_51M7OsQJP4ezsauZibsxljWHkUdfYbxZhdkdxaKXqEURRCsa47V5W4xr62xNacXGdFa0RwWIgyq7WCDdg75TC2has00Hy16zh4q'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
