@@ -2,17 +2,9 @@
 <header>
   <div class="container">
     <%= image_tag "bike_logo.png", class: "bike_logo" %>
-<<<<<<< HEAD
-    <div class = "header user_name">
-    <% if @user %>
-      Hello <%=@user.username %>
-      <% end %>
-      </div>
-=======
     <% if logged_in? %>
       Hello <%= current_user.username %>
-    <% end %> 
->>>>>>> 556d14912dc980bb15944d376578bbe9522df672
+    <% end %>
     <nav class="header">
       <ul>
         <li><%= link_to "Home", root_path %></li>
