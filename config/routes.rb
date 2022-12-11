@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root to: "stations#index"
 
 
-
   #User routes
   get 'sign_up', to: 'users#new'
   post 'sign_up', to: 'users#create'

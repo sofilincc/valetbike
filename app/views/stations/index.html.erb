@@ -38,7 +38,7 @@
 
 
             var geocoder = new google.maps.Geocoder();
-            var station_addresses = ["380 Elm Street, Northampton, MA", "51 Locust Street, Northampton, MA", "20 West Street, Northampton, MA", "1 Bridge Street, Northampton, MA"];
+            var station_addresses = <%= raw Station.all.map(&:address).to_json %>;
             for (let index = 0; index < station_addresses.length; index++){
               geocoder.geocode( { 'address': station_addresses[index]}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
