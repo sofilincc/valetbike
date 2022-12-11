@@ -4,8 +4,4 @@ class StationsController < ApplicationController
     @stations = Station.all.order(identifier: :asc)
   end
 
-  def address
-    return @stations[:address]
-  end 
-
 end
