@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     logged_in_user()
   end
 
+  
+
 
   private
 
