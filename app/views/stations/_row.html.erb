@@ -1,3 +1,25 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
-</div>
+<%= stylesheet_link_tag "membership.css", "pages.css" %>
+
+<br>
+<table>
+  <thead>
+    <tr style="text-align: left">
+      <th>Station Name</th>
+      <th>Number of Bikes</th>
+      <th>Station Address</th>
+      <th>Rent from here</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stations.each do |station| %>
+      <tr class="table-row <%= cycle "odd", "even"%>">
+        <td><%= station.name %></td>
+        <td><%= station.dock_count %></td>
+        <td><%= station.address %></td>
+        <td class="membership-button" style="padding: 4px 8px"><%= link_to "Rent", rent_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

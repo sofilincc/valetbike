@@ -103,7 +103,7 @@
     background-color: #ff93c9;
     color: white;
   }
-
+  
 .membership-cost {
     margin: 0;
     text-align: center;
@@ -115,4 +115,18 @@
     font-size: 0.9em;
     text-align: center;
     margin: 0 0 10px 0;
+}
+
+.table-row {
+    padding: 0.5em 1.25em 0.5em 1.25em;
+    font-size: 0.85em;
+    line-height: 1.75em;
+}
+
+.table-row.odd {
+    background: #f98ec345;
+}
+  
+.table-row.even {
+    background: white;
 }
