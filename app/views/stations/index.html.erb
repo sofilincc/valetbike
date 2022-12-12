@@ -1,27 +1,15 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class='nav-brand'>
- <a href='home.php'>
-   <%= image_tag('bike_logo.png', height: '60', width: '90') %>
- </a>
 </div>
     <div class="section-title">
-
-      Welcome to ValetBike!
-      <% if @user %>
-        Logged in as:  <%= @user.username %>
-        <%= button_to "Logout", logout_path, method: :delete%>
-        <% else %>
-        <%= link_to 'Sign Up', sign_up_path %>
-      <% end %>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23602.95551448874!2d-72.64143125!3d42.31331839999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1667324742671!5m2!1sen!2sus" width="1400" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
     <div class="flexbox vertical stretch">
       <head>
         <style>
           #map {
-            height: 400px;
+            height: 600px;
             width: 100%;
           }
         </style>
@@ -29,16 +17,30 @@
       <body>
         <h3>GFG Google Maps Demo</h3>
         <div id="map"></div>
-        <script> 
+        <script>
           function initMap() {
             var uluru = {lat: 42.3163, lng: -72.6403};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 14,
               center: new google.maps.LatLng(42.3163, -72.6403)
             });
-            
+
+            const image = {
+              url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEZElEQVRIieWWW2xUVRSGv7XPTNuZzjBDbai0aIImEi4BUYMMnZaLYjFCjIQxpBjxwTsQX00wahR8wITIiyaaGIhCYjtpAgEjbWmRAlODUEkQhISLglwEaqedMqWdc5YPM0NK6XTEYHhgPZ2z8p//X/8+a6+9pa6uzuIuhLkbovemsOtOEc3fs6RVRKqy76q6r6k6OjsX/o45FpFxNyfQkfA5Hc/fs+RHEakcnBvRhfAdyrsIXzaG69/OV+jtOR7BhWOxJV0dS0LnQgX/WbipOjpbXcwBFEgOuK9PaKqKzsmFbw7VH1XVw0CJ58zYBfmEJd8AqWmLfK3wcj6im1mJNobrl44EybvUNvYPtyUKoCwMxWoCI0HybifB3GgUhQsJV/eUWGhnfDCmquPZEk/CdxLwA6eB8d6B4heAjbl4R3RcE4s8LkgY+NtB2wXG+p1Ra4biinp9qwA/QqMt9icAlrGWjWgo+4/DR8OFns6y13CkVkQmA/3AADAGw6eO4RuT4iBgiZvKnTPrDwCEYjUBf2rUSSBoXFQnPb0nCnuKzwMCXANwVI+I6JbE+PNfxcbF+m84Dh9cVOG5en9M1HwmIjOAYmA0MAZAHX06KckuDOsB4/TrF9MvTncB+GzfCiAI7O6R5JmCbu+2DK9keIqNyJOC2eA7VbG/sn1hOYC1YfIGj6c7uEuQqQpHbbHfiN/X/aa3r8gDzARsQcrdtmt2ry/xVkF/YUREJhZ1BrtKrlQc8Q54NwNeR+wVBSn355nCrwBeVT3cVRqf6E66DxjMNBGZ4nZcc8qswCbjuVr2uiBTUY4lXN1VLeGGbU5SVZXlAKr2YuC0iDzm7S1e6mC/A2BhPihJjv4YKHXQ/SAPZkSPD1jXpgKdIjItEA8+0FLVsLXH1V0J/CbIdN+Z8lcNSC1Aytirs91akgy8AgQV3dtU3bBDsT8EQKW2uarhewwNgF+UVem8swaV5QC2sVe3ztrxF0IUwNjUAsRCO+O2sd9Lw2WZEWQiQE9JT+uNjtP0FhIk/ExbJCVYm9INIbOeaYukcFicxSp6oLm6odEgEwCumd5WAM2OUIcXs9iEJ9ECYEQmGbh1/qrqpaG5HNHnkHZBZiakAo4D8Etg9z5H9SdFO7Ngc10k++xS1WMiMsN/1T8P2ArQVB2dO5h9/t7FL4laGx20vbkqGh6ugqE8lydd1maiN51u3lTxvPQi6K8G0c3pcq21w425uT8/VyaO9T4Aot/m9J6HZ1bHgqCFtTZT5mY5u/6sx3eqYr+IPAoct429OuFJtHj73EWWFs41jvUR8LCqHko89Gc4OwCGRuhcqGA4HgBfr++pjOgjqnqoq/T3Sqmrq7Mq2xeWe/uLtmU+unUZ0Q7b1beoJbT9Yk7HQF4e1UOOt+/5XU9sv2BFIhFzdtyJnjIrsLEg7rukMFqQIDDgqHZgdF1i/PmVbZNb4sORDY4cPP2O6kEVXRcv/WPl3mm74/AvzuP/K+69e/W9J/wPPz7PXmCmUJkAAAAASUVORK5CYII',
+              size: new google.maps.Size(30, 30),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(0, 30),
+            };
+            const shape = {
+              coords: [1, 1, 1, 20, 18, 20, 18, 1],
+              type: "poly",
+            };
+
+
             var geocoder = new google.maps.Geocoder();
-            var station_addresses = ["380 Elm Street, Northampton, MA", "51 Locust Street, Northampton, MA", "20 West Street, Northampton, MA", "1 Bridge Street, Northampton, MA"];
+            var station_addresses = <%= raw Station.all.map(&:address).to_json %>;
+            var station_bike_numbers = <%= raw Station.all.map(&:docked_bike_count).to_json %>;
+            var station_dock_numbers = <%= raw Station.all.map(&:dock_count).to_json %>;
             for (let index = 0; index < station_addresses.length; index++){
               geocoder.geocode( { 'address': station_addresses[index]}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -46,13 +48,23 @@
                   var longitude = results[0].geometry.location.lng();
                   var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(latitude, longitude),
-                    map: map
+                    map: map,
+                    icon: image,
+                    shape: shape
                   });
+                  function getInfoCallback(map, station_addresses, index) {
+                    var infowindow = new google.maps.InfoWindow();
+                    return function () {
+                        infowindow.setContent(station_addresses[index]+ "<br />" +"Available Bike: " + station_bike_numbers[index] + "<br />" +"Available Dock: " + station_dock_numbers[index]);
+                        infowindow.open(map, this);
+                    };
+                  };
+                  google.maps.event.addListener(marker, 'click', getInfoCallback(map, station_addresses, index));
                 }
               });
             }
           }
-              
+
 
 
         </script>
@@ -63,7 +75,7 @@
         </script>
       </body>
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <%= render(partial: "stations/row") %>
       <% else %>
       <div class="empty">
         No stations found.
@@ -71,6 +83,3 @@
       <% end %>
     </div>
 	</div>
-  <div>
-    <%= link_to('Rent', {controller: 'stations', action: 'rent'}) %><br />
-</div>

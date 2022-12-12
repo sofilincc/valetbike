@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_191301) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_11_142300) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
-    t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "current_station_identifier"
+    t.string "station_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -24,6 +26,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_191301) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "has_kiosk"
+    t.integer "needs_maintenance"
+    t.integer "dock_count"
+    t.integer "docked_bike_count"
+  end
+
+  create_table "subscriptions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "plan_id"
+    t.string "customer_id"
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.datetime "current_period_end"
+    t.datetime "current_period_start"
+    t.string "interval"
+    t.string "subscription_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -31,6 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_191301) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "membership_id"
+    t.string "stripe_id"
   end
 
+  add_foreign_key "subscriptions", "users"
 end

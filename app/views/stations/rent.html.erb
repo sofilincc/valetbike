@@ -1,13 +1,39 @@
-<%= stylesheet_link_tag "rent.css" %>
+<%= stylesheet_link_tag "membership.css", "flexbox-ultralight.css" %>
 
-<h1>Ready to rent a bike?</h1>
+<div class="membership-title" style="margin-top:20px">
+    Ready to rent a bike?
+</div>
 
-<div class='left'>
-    <%= image_tag('bikeshare.jpeg', height: '300', width: '500') %>
-    <h2>Electrical Bike</h2>
-</div>
-<div class='right'>
-    <%= image_tag('normalbike.png', height: '300', width: '500') %>
-    <h2>Manual Bike</h2>
-</div>
+<body>
+    <div class="flexbox justify-space-around">
+        <div class="membership-card flexbox vertical" id="rent" style="display: inline-block">
+            <%= image_tag('bikeshare.png', height: '300', width: '500', :alt => "Electrical Bike") %>           
+            <h1 class="membership-title">Electrical bike</h1>
+            <h2 class="membership-subtitle">Enjoy the wind in our hair</h2>
+            <div class="membership-pay" id="rent-pay" >
+                <p class="membership-cost">$3</p>
+                <p class="membership-pay-text">per 30min</p>
+                <button class="membership-button">
+                    <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
+                        <input type="hidden" name="price_id" value="price_1MAMabJP4ezsauZiUDWHtpWX" />
+                        <input type="hidden" name="mode_id" value="payment" />
+                        <%= submit_tag "Unlock", data: { disable_with: "Hold please..." } %>
+                    <% end %>
+                </button>
+            </div>
+        </div>
+
+        <div class="membership-card flexbox vertical" id="rent" style="display: inline-block">
+            <%= image_tag('normalbike.png', height: '300', width: '500', :alt => "Manual Bike") %>            
+            <h1 class="membership-title">Manual Bike</h1>
+            <h2 class="membership-subtitle">Classic, Healthy, Affordable</h2>
+            <div class="membership-pay" id="rent-pay" >
+                <p class="membership-cost">$1</p>
+                <p class="membership-pay-text">per 30min</p>
+                <button class="membership-button" role="link"type="button">Unlock</button>
+            </div>
+        </div>
+    </div>  
+</body>
+
 

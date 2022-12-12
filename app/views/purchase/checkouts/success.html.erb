@@ -1,0 +1,13 @@
+<!-- app/views/purchase/checkouts/success.html.erb-->
+
+<div class="max-w-xl mx-auto p-8 rounded-xl shadow-xl mt-6">
+<div class="h-[200px] bg-gray-100 overflow-hidden mb-6 rounded-lg">
+    <%= image_tag('happy_biker.webp', height: '300', width: '500') %>
+  </div>
+  <div>
+    <h1 class="font-black text-3xl mb-3 text-center">Thanks for your purchase, <%= @customer.name %>!</h1>
+    <button class="membership-button">
+      <%= link_to "Ride on", root_url, class: "px-3 py-4 bg-black no-underline block w-full text-center rounded font-bold text-white shadow-sm" %>
+    </button>
+  </div>
+</div>

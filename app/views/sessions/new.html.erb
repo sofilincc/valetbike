@@ -1,15 +1,25 @@
-<h1> Login </h1>
+<%= stylesheet_link_tag "membership.css" %>
 
-<%= form_with url: login_path do |form| %>
-<%= form.label :username %>
-<%= form.text_field :username, class: "form-control" %><br>
-<%= form.label :password %>
-<%= form.password_field :password, class: "form-control"%><br>
-
-
-<div class="mb-3">
-<%= form.submit "Login" %>
+<div class="membership-title" style="margin:20px">
+  Login
 </div>
 
+<center>
+  <%= form_with url: login_path do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username, class: "membership-header", id:"signup"%> <br><br>
+  <%= form.label :password %>
+  <%= form.password_field :password, class: "membership-header", id:"signup"%><br>
 
-<% end %>
+
+  <div class="membership-button">
+    <%= form.submit "Login" %>
+  </div>
+  
+  <div class="membership-subtitle">
+    Don't have an account? <%= link_to 'Sign Up', sign_up_path, class:"membership-description", style:"color: #ff93c9"%> now!
+  </div>
+
+  <%end%> 
+
+</center>

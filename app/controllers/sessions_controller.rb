@@ -1,3 +1,5 @@
+require 'sessions_helper'
+
 class SessionsController < ApplicationController
 
   def destroy
@@ -22,6 +24,7 @@ class SessionsController < ApplicationController
     end
 
   end
+
 
 
 end
