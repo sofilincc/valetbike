@@ -21,7 +21,9 @@ class UsersController < ApplicationController
     logged_in_user()
   end
 
-  
+  def subscribed?
+    subscribed_user()
+  end
 
 
   private
