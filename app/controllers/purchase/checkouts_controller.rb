@@ -5,21 +5,40 @@ class Purchase::CheckoutsController < ApplicationController
   def create
     price = params[:price_id] # passed in via the hidden field in pricing.html.erb
     mode = params[:mode_id]
-    session = Stripe::Checkout::Session.create(
-      customer: current_user.stripe_id,
-      client_reference_id: current_user.id,
-      success_url: root_url + "success?session_id={CHECKOUT_SESSION_ID}",
+    if mode == 'payment'
+      session = Stripe::Checkout::Session.create(
+      #customer: current_user.stripe_id,
+      #client_reference_id: current_user.id,
+      success_url: root_url,
       cancel_url: membership_url,
       payment_method_types: ['card'],
       mode: mode,
-      customer_email: 'zoesbuck@gmail.com',
+      customer_email: 'example@gmail.com',
       line_items: [{
         quantity: 1,
         price: price,
       }]
-    )
-    #render json: { session_id: session.id } # if you want a json response
-    redirect_to session.url, allow_other_host: true
+      )
+      #render json: { session_id: session.id } # if you want a json response
+      redirect_to session.url, allow_other_host: true
+
+    else
+      session = Stripe::Checkout::Session.create(
+        customer: current_user.stripe_id,
+        client_reference_id: current_user.id,
+        success_url: root_url + "success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: membership_url,
+        payment_method_types: ['card'],
+        mode: mode,
+        #customer_email: 'example@gmail.com',
+        line_items: [{
+          quantity: 1,
+          price: price,
+        }]
+      )
+      #render json: { session_id: session.id } # if you want a json response
+      redirect_to session.url, allow_other_host: true
+    end
   end
 
   def success

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "membership.css", "flexbox-ultralight.css" %>
+
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class='nav-brand'>
@@ -18,12 +20,62 @@
         <h3>GFG Google Maps Demo</h3>
         <div id="map"></div>
         <script>
-          function initMap() {
+
+          function distBetween(mk1, mk2) {
+            var R = 3958.8;
+            var rlat1 = mk1.lat() * (Math.PI/180);
+            var rlat2 = mk2.lat() * (Math.PI/180);
+            var difflat = rlat2-rlat1;
+            var difflon = (mk2.lng()-mk1.lng()) * (Math.PI/180);
+            var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
+            return d;
+          }
+          function nearestStation(map, address) {
+            const controlButton = document.createElement("button");
+
+            controlButton.style.backgroundColor = "#fff";
+            controlButton.style.border = "2px solid #fff";
+            controlButton.style.borderRadius = "3px";
+            controlButton.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+            controlButton.style.color = "rgb(25,25,25)";
+            controlButton.style.cursor = "pointer";
+            controlButton.style.fontFamily = "Roboto,Arial,sans-serif";
+            controlButton.style.fontSize = "16px";
+            controlButton.style.lineHeight = "38px";
+            controlButton.style.margin = "8px 0 22px";
+            controlButton.style.padding = "0 5px";
+            controlButton.style.textAlign = "center";
+
+            controlButton.textContent = "The nearest station is: " + address;
+            controlButton.type = "button";
+
+            return controlButton;
+          }
+          
+          function initMap() {            
             var uluru = {lat: 42.3163, lng: -72.6403};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 14,
-              center: new google.maps.LatLng(42.3163, -72.6403)
+              center: uluru
             });
+            function grabMyPosition() {
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(centerMe);
+              } else {
+                  alert("You don't support this");
+              }
+            }
+            function centerMe(position) {
+                var coords = new google.maps.LatLng(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+
+                map.setCenter(coords);
+            }
+
+        
+
 
             const image = {
               url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEZElEQVRIieWWW2xUVRSGv7XPTNuZzjBDbai0aIImEi4BUYMMnZaLYjFCjIQxpBjxwTsQX00wahR8wITIiyaaGIhCYjtpAgEjbWmRAlODUEkQhISLglwEaqedMqWdc5YPM0NK6XTEYHhgPZ2z8p//X/8+a6+9pa6uzuIuhLkbovemsOtOEc3fs6RVRKqy76q6r6k6OjsX/o45FpFxNyfQkfA5Hc/fs+RHEakcnBvRhfAdyrsIXzaG69/OV+jtOR7BhWOxJV0dS0LnQgX/WbipOjpbXcwBFEgOuK9PaKqKzsmFbw7VH1XVw0CJ58zYBfmEJd8AqWmLfK3wcj6im1mJNobrl44EybvUNvYPtyUKoCwMxWoCI0HybifB3GgUhQsJV/eUWGhnfDCmquPZEk/CdxLwA6eB8d6B4heAjbl4R3RcE4s8LkgY+NtB2wXG+p1Ra4biinp9qwA/QqMt9icAlrGWjWgo+4/DR8OFns6y13CkVkQmA/3AADAGw6eO4RuT4iBgiZvKnTPrDwCEYjUBf2rUSSBoXFQnPb0nCnuKzwMCXANwVI+I6JbE+PNfxcbF+m84Dh9cVOG5en9M1HwmIjOAYmA0MAZAHX06KckuDOsB4/TrF9MvTncB+GzfCiAI7O6R5JmCbu+2DK9keIqNyJOC2eA7VbG/sn1hOYC1YfIGj6c7uEuQqQpHbbHfiN/X/aa3r8gDzARsQcrdtmt2ry/xVkF/YUREJhZ1BrtKrlQc8Q54NwNeR+wVBSn355nCrwBeVT3cVRqf6E66DxjMNBGZ4nZcc8qswCbjuVr2uiBTUY4lXN1VLeGGbU5SVZXlAKr2YuC0iDzm7S1e6mC/A2BhPihJjv4YKHXQ/SAPZkSPD1jXpgKdIjItEA8+0FLVsLXH1V0J/CbIdN+Z8lcNSC1Aytirs91akgy8AgQV3dtU3bBDsT8EQKW2uarhewwNgF+UVem8swaV5QC2sVe3ztrxF0IUwNjUAsRCO+O2sd9Lw2WZEWQiQE9JT+uNjtP0FhIk/ExbJCVYm9INIbOeaYukcFicxSp6oLm6odEgEwCumd5WAM2OUIcXs9iEJ9ECYEQmGbh1/qrqpaG5HNHnkHZBZiakAo4D8Etg9z5H9SdFO7Ngc10k++xS1WMiMsN/1T8P2ArQVB2dO5h9/t7FL4laGx20vbkqGh6ugqE8lydd1maiN51u3lTxvPQi6K8G0c3pcq21w425uT8/VyaO9T4Aot/m9J6HZ1bHgqCFtTZT5mY5u/6sx3eqYr+IPAoct429OuFJtHj73EWWFs41jvUR8LCqHko89Gc4OwCGRuhcqGA4HgBfr++pjOgjqnqoq/T3Sqmrq7Mq2xeWe/uLtmU+unUZ0Q7b1beoJbT9Yk7HQF4e1UOOt+/5XU9sv2BFIhFzdtyJnjIrsLEg7rukMFqQIDDgqHZgdF1i/PmVbZNb4sORDY4cPP2O6kEVXRcv/WPl3mm74/AvzuP/K+69e/W9J/wPPz7PXmCmUJkAAAAASUVORK5CYII',
@@ -38,9 +90,14 @@
 
 
             var geocoder = new google.maps.Geocoder();
-            var station_addresses = <%= raw Station.all.map(&:address).to_json %>;
-            var station_bike_numbers = <%= raw Station.all.map(&:docked_bike_count).to_json %>;
-            var station_dock_numbers = <%= raw Station.all.map(&:dock_count).to_json %>;
+
+            var minDist = 1000;
+            var nearest_text = '';
+            var station_addresses = ["298 State St, Northampton, MA", "380 Elm Street, Northampton, MA", "51 Village Hill Rd #3600, Northampton, MA", "1 Chapin Way, Northampton, MA",  "20 West Street, Northampton, MA", "99 Main Street, Northampton, MA", "20 West Street, Northampton, MA", "99 Main Street, Northampton, MA", "274 Main Street, Northampton, MA", "62 Chestnut St, Northampton, MA"]; 
+            var station_names = <%= raw @stations.map(&:name).to_json %>;
+            var station_bike_numbers = <%= raw @stations.map(&:docked_bike_count).to_json %>;
+            var station_dock_numbers = <%= raw @stations.map(&:dock_count).to_json %>;
+
             for (let index = 0; index < station_addresses.length; index++){
               geocoder.geocode( { 'address': station_addresses[index]}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -52,10 +109,29 @@
                     icon: image,
                     shape: shape
                   });
+
+                  var mk1 = marker.getPosition();
+                  var mk2 = map.getCenter();
+                  var markerDist = distBetween(mk1, mk2);
+                  if (markerDist < minDist) {
+                    minDist = markerDist;
+                    nearest_text = station_addresses[index];
+                    
+                  }
+                  if(index == station_addresses.length -1){
+                    alert(minDist);
+                    const centerControlDiv = document.createElement("div");
+                    centerControlDiv.appendChild(nearestStation(map, nearest_text));
+                    map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+                  }
+
                   function getInfoCallback(map, station_addresses, index) {
                     var infowindow = new google.maps.InfoWindow();
+                    var content = "<b>"+ station_names[index] + "</b>" +
+                    "<br><b>Available Bikes: </b>" +  station_bike_numbers[index] +
+                    "<br><b>Available Docks: </b>" + station_dock_numbers[index];
                     return function () {
-                        infowindow.setContent(station_addresses[index]+ "<br />" +"Available Bike: " + station_bike_numbers[index] + "<br />" +"Available Dock: " + station_dock_numbers[index]);
+                        infowindow.setContent("<b>" + station_names[index]+ "</b><br><b>Available Bike: </b>" + station_bike_numbers[index] + "</b><br><b>Available Dock: </b> " + station_dock_numbers[index]);
                         infowindow.open(map, this);
                     };
                   };

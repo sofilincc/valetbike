@@ -75,14 +75,16 @@
                     <p class="membership-cost">$39.9</p>
                     <p class="membership-pay-text">per ride</p>
                     <button class="membership-button">
-                        <% if logged_in? %>
+                        <% if logged_in? && !subscribed? %>
                             <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
                                 <input type="hidden" name="price_id" value="price_1MAJKqJP4ezsauZin28Wc2ZN" />
                                 <input type="hidden" name="mode_id" value="subscription" />
                                 <%= submit_tag "Subscribe for $9/mo", data: { disable_with: "Hold please..." }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
                             <% end %>
-                            <% else %>
-                                <%= link_to "Log in to subscribe!", login_path, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                        <% elsif logged_in? && subscribed? %>
+                            <%=button_to "Manage your subscription", billings_path, method: :post, data: { turbo: false }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                        <% else %>
+                            <%= link_to "Log in to subscribe!", login_path, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
                         <% end %>
                     </button>
                 </div>

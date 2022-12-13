@@ -21,8 +21,14 @@ class UsersController < ApplicationController
     logged_in_user()
   end
 
+<<<<<<< HEAD
 
 
+=======
+  def subscribed?
+    subscribed_user()
+  end
+>>>>>>> 64453e2374302f900424e5f8c7cc75bf7d97b5c6
 
 
   private
