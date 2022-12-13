@@ -19,16 +19,20 @@ Rails.application.routes.draw do
 
   #resources :charges, only: [:new, :create]
 
-
+  #devise_for :users
+  scope controller: :users do
+    get 'membership'
+  end
 
   namespace :purchase do
     resources :checkouts
   end
   
   get "success", to: "purchase/checkouts#success"
-  #resources :subscriptions
+  resources :subscriptions
   
-
+  resources :webhooks, only: :create
+  resources :billings, only: :create
   
   post '/purchase/checkouts', to: 'checkouts#create'
 
@@ -43,9 +47,9 @@ Rails.application.routes.draw do
   # devise_for :users
 
   # Add 3 these lines below
-  scope controller: :users do
-    get 'membership'
-  end
+  #scope controller: :users do
+    #get 'membership'
+  #end
   
   #match 'pricing', to: "static#pricing", via: :get
   #root to: 'home#index'

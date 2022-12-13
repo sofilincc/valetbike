@@ -20,7 +20,10 @@ class UsersController < ApplicationController
   def logged_in?
     logged_in_user()
   end
-
+  
+  def subscribed?
+    subscribed_user()
+  end
 
   private
 
