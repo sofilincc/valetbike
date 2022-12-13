@@ -88,9 +88,14 @@
 
 
             var geocoder = new google.maps.Geocoder();
+
             var minDist = 1000;
             var nearest_text = '';
             var station_addresses = ["380 Elm Street, Northampton, MA", "51 Locust Street, Northampton, MA", "20 West Street, Northampton, MA", "1 Bridge Street, Northampton, MA"];
+
+            var station_bike_numbers = <%= raw Station.all.map(&:docked_bike_count).to_json %>;
+            var station_dock_numbers = <%= raw Station.all.map(&:dock_count).to_json %>;
+
             for (let index = 0; index < station_addresses.length; index++){
               geocoder.geocode( { 'address': station_addresses[index]}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -121,7 +126,7 @@
                   function getInfoCallback(map, station_addresses, index) {
                     var infowindow = new google.maps.InfoWindow();
                     return function () {
-                        infowindow.setContent(station_addresses[index]);
+                        infowindow.setContent(station_addresses[index]+ "<br />" +"Available Bike: " + station_bike_numbers[index] + "<br />" +"Available Dock: " + station_dock_numbers[index]);
                         infowindow.open(map, this);
                     };
                   };
@@ -141,7 +146,7 @@
         </script>
       </body>
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <%= render(partial: "stations/row") %>
       <% else %>
       <div class="empty">
         No stations found.

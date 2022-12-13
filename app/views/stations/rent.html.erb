@@ -17,7 +17,7 @@
                     <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
                         <input type="hidden" name="price_id" value="price_1MAMabJP4ezsauZiUDWHtpWX" />
                         <input type="hidden" name="mode_id" value="payment" />
-                        <%= submit_tag "Unlock", data: { disable_with: "Hold please..." }, class: "px-3 py-4 bg-teal-600 block no-underline w-full text-center rounded font-bold text-white shadow-sm" %>
+                        <%= submit_tag "Unlock", data: { disable_with: "Hold please..." } %>
                     <% end %>
                 </button>
             </div>

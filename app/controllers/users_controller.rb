@@ -20,18 +20,16 @@ class UsersController < ApplicationController
   def logged_in?
     logged_in_user()
   end
-  
+
   def subscribed?
     subscribed_user()
   end
+
 
   private
 
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
-  end
-
-  def membership
   end
 
 end
