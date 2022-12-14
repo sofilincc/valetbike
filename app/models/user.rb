@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   has_many :subscriptions, dependent: :destroy
+  has_many :bookings, class_name: :Booking, foreign_key: :user_id
+
 
   
   def subscribed?
