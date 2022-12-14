@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :bookings, class_name: :Booking, foreign_key: :user_id
 
+
   
   def subscribed?
     subscriptions.where(status: 'active').any?
